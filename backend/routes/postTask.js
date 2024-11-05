@@ -19,7 +19,7 @@ function postTask(req, res, tasks) {
       }
 
       const newTask = {
-        id: Math.floor(Math.random() * 1000000), // Generate a random integer ID
+        id: Math.floor(Math.random() * 1000), 
         title: title,
       };
 

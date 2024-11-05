@@ -4,10 +4,8 @@ var http = require("http");
 var getTasks_1 = require("./routes/getTasks");
 var postTask_1 = require("./routes/postTask");
 var PORT = 3000;
-// Initial tasks array and currentId
+// Initial tasks array 
 var tasks = [];
-var currentId = 1;
-var incrementId = currentId++;
 var server = http.createServer(function (req, res) {
     // Ajout des en-têtes CORS 
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,7 +22,7 @@ var server = http.createServer(function (req, res) {
         (0, getTasks_1.default)(req, res, tasks);
     }
     else if (req.method === "POST" && req.url === "/tasks") {
-        (0, postTask_1.default)(req, res, tasks, incrementId);
+        (0, postTask_1.default)(req, res, tasks);
     }
     else {
         res.writeHead(404, { "Content-Type": "application/json" });
